@@ -1,6 +1,15 @@
 "hello world"
 <br>
-List of Events
+Event Listings
+
+
+<br>
+
+
+<a href="/createEvent">Create an Event</a>
+
+        <br>
+<br>
 {% for event in events %}
 Event: <a href=viewEvent/{{event.id}}>{{event.name}}</a><br>
 {% endfor %}
