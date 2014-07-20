@@ -24,7 +24,7 @@ Create Event
 {% for error in form.errors.category %} <span style="color: red">{{ error }}</span> {% endfor %}
 
 <br>
-    time:
+    time (yyyy-mm-dd hh):
     {{form.time(id="time",class="form-control input-sm",placeholder="Time")}}
 {% for error in form.errors.time %} <span style="color: red">{{ error }}</span> {% endfor %}
 
@@ -38,6 +38,7 @@ Create Event
     {{form.step(id="step",class="form-control input-sm",placeholder="Step")}}
 {% for error in form.errors.step %} <span style="color: red">{{ error }}</span> {% endfor %}
 <br><br><button type="add" class="btn btn-primary btn-lg">Add Step</button>
+
 <button type="submit" class="btn btn-primary btn-lg">Submit</button>
 </form>
 

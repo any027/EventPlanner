@@ -24,7 +24,7 @@ def createEvent():
         sqldb.session.add(event)
         sqldb.session.commit()
     if form.validate_on_submit():
-        add_event(form.name.data, "Category", "Stepsss", "2012-02-02", "San Francisco")
+        add_event(form.name.data, form.category.data, form.step.data, form.time.data, form.location.data)
         flash('Event Created.')
 
     return render_template("createEvent.html", form=form)
