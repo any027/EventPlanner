@@ -11,13 +11,36 @@ Create Event
 							<li>{{ message }}</li> {% endfor %}
 						</ul>
 						{% endif %} {% endwith %}
+
 <form class="form-horizontal" action="" method="post">
    {{form.hidden_tag()}}
     name:
     {{form.name(id="name",class="form-control input-sm",placeholder="Name")}}
 {% for error in form.errors.name %} <span style="color: red">{{ error }}</span> {% endfor %}
+
+<br>
+    category:
+    {{form.category(id="category",class="form-control input-sm",placeholder="Category")}}
+{% for error in form.errors.category %} <span style="color: red">{{ error }}</span> {% endfor %}
+
+<br>
+    time:
+    {{form.time(id="time",class="form-control input-sm",placeholder="Time")}}
+{% for error in form.errors.time %} <span style="color: red">{{ error }}</span> {% endfor %}
+
+<br>
+    location:
+    {{form.location(id="location",class="form-control input-sm",placeholder="Location")}}
+{% for error in form.errors.location %} <span style="color: red">{{ error }}</span> {% endfor %}
+
+<br>
+    step:
+    {{form.step(id="step",class="form-control input-sm",placeholder="Step")}}
+{% for error in form.errors.step %} <span style="color: red">{{ error }}</span> {% endfor %}
+<br><br><button type="add" class="btn btn-primary btn-lg">Add Step</button>
 <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-    </form>
+</form>
+
 
 </body>
 </html>
