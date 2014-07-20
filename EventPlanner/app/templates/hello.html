@@ -1,17 +1,42 @@
 {% include 'navbar.html' %}
 
-"hello world"
-<br>
-Event Listings
+
+<h1>Event Listings</h1>
 
 
 <br>
 
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>Marketing stuff!</h1>
+        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
+        <p><a class="btn btn-lg btn-success" href="/createEvent" role="button">Create an Event</a></p>
+      </div>
 
-<a href="/createEvent">Create an Event</a>
 
-        <br>
-<br>
-{% for event in events %}
-Event: <a href=viewEvent/{{event.id}}>{{event.name}}</a><br>
+
+<div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Event #</th>
+                  <th>Name</th>
+                  <th>Time</th>
+                  <th>Location</th>
+
+                </tr>
+              </thead>
+              <tbody>
+              {% for event in events %}
+                <tr>
+
+                  <td>{{event.id}}</td>
+                  <td> <a href=viewEvent/{{event.id}}>{{event.name}}</a></td>
+                  <td>{{event.time}}</td>
+                  <td>{{event.location}}</td>
+
+                </tr>
 {% endfor %}
+              </tbody>
+            </table>
+          </div>
