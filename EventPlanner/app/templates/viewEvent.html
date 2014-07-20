@@ -37,6 +37,30 @@ Time:
 Location:
 {{event.location}}
 <br>
+  <style>img{ height: 100px; }</style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script>
+
+
+
+$.getJSON("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q={{event.category}}&callback=?",
+          {
+            unescapedUrl: "any"
+          },
+          function(data) {
+            $.each(data.responseData.results, function(i,results){
+                  $("<img/>").attr("src", results.unescapedUrl).attr("id", "img"+i).appendTo("#images");
+                  $("#img"+i).wrap($("<a/>").attr("href", results.unescapedUrl));
+              if ( i == 1 ) $("#images").append("<br />");
+            });
+            return false;
+          });
+
+
+</script>
+        <div id="images"></div>
+
+
 
 
     </div>
