@@ -5,6 +5,19 @@
 </head>
 <body>
 Create Event
+						{% with messages = get_flashed_messages() %} {% if messages %}
+						<ul>
+							{% for message in messages %}
+							<li>{{ message }}</li> {% endfor %}
+						</ul>
+						{% endif %} {% endwith %}
+<form class="form-horizontal" action="" method="post">
+   {{form.hidden_tag()}}
+    name:
+    {{form.name(id="name",class="form-control input-sm",placeholder="Name")}}
+{% for error in form.errors.name %} <span style="color: red">{{ error }}</span> {% endfor %}
+<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+    </form>
 
 </body>
 </html>
