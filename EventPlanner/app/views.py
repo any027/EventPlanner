@@ -29,6 +29,11 @@ def createEvent():
 
     return render_template("createEvent.html", form=form)
 
+@app.route('/viewEvent/<int:id>', methods = ['GET'])
+def viewEvent(id):
+    event = Event.query.get(id)
+    return render_template("viewEvent.html", event=event)
+
 @app.route('/suggestions/<string:type>', methods = ['GET', 'POST'])
 def getSuggestions(type):
     return render_template("suggestions.html", data=type)
