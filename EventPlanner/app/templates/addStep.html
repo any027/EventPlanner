@@ -19,7 +19,18 @@ Location:
 {{event.location}}
 <br>
 
-{% include 'suggestions.html'%}
+<h1>Suggestions For {{event.category}}</h1>
+{% if suggestions.count() == 0 %}
+<b>There is no suggestion for this category yet! Sorry...</b>
+{% endif %}
+{% for suggestion in suggestions %}
+<br>--------------<br>
+ Step:
+{{suggestion.step}}
+<br>--------------<br>
+{% endfor %}
+
+
 Try to Do HTML 5 / JavaScript Hide/ Show
 <form class="form-horizontal" action="" method="post">
    {{form.hidden_tag()}}

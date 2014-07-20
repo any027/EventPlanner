@@ -48,6 +48,7 @@ def getSuggestions(category):
 def addStep(event_id):
     event = Event.query.get(event_id)
     form = StepForm()
+    suggestions = Suggestion.query.filter(Suggestion.category == event.category)
     def add_step(event_id, step_num, step):
         new_step = Step(event_id = event_id, step_num = step_num, step=step)
         sqldb.session.add(new_step)
@@ -55,4 +56,4 @@ def addStep(event_id):
     if form.validate_on_submit():
         add_step(event_id, form.step_num.data, form.step.data)
         return redirect("viewEvent/"+str(event_id))
-    return render_template("addStep.html", form = form, event=event)
+    return render_template("addStep.html", form = form, event=event, suggestions = suggestions)
