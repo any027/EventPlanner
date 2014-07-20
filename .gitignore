@@ -17,7 +17,6 @@ local.properties
 .loadpath
 flask/
 .idea/
-*.pyc
 
 # External tool builders
 .externalToolBuilders/
@@ -216,5 +215,3 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
-*.pyc
-*.pyc
