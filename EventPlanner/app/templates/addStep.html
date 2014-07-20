@@ -7,77 +7,97 @@
 <body style ="background-color:#FFFFAD">
 
 
-
-<div style ="font-size:15pt;color:purple; text-align:top-right;float:right; border-left:5px #FF78FF dotted;border-bottom:5px #FF78FF dotted;padding-top:13px; padding-right:20px; padding-left:10px; margin-right:45px; width:15%">	
-
-{{event.name}}
-
-
-
-<br>	
-
-
-
-{{event.category}}
-
-
 <br>
 
 
+<div class="alert alert-success" role="alert" style="text-align:center">
 
-{{event.time}}
-
-
-<br>
-
-
-{{event.location}}
-		
+    <h4><b>Event: {{event.name}}</b></h4>
+    <p>
+        Time: {{event.time}}
+        Location: {{event.location}}
 </div>
 
 
 
-<h1>
+
+
+
+
+
+<div class="container" >
+    <form class="form-horizontal" action="" method="post">
+        {{form.hidden_tag()}}
+
+        <label display="block">
+                    Add a Step:
+            </label>
+        {{form.step(id="step",class="form-control ",placeholder="See our suggestions for ideas ;)")}}
+
+        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+
+
+
+        {% for error in form.errors.step %} <span style="color: red">{{ error }}</span> {% endfor %}
+    </form>
+    <div class="row">
+        <div class="col-xs-6">
+            <h4>Current Steps:</h4>
+            {% if event_steps.count() == 0 %}
+            You don't have any steps yet, go ahead and add some!
+            {% endif %}
+            <ul class="list-group">
+                {% for step in event_steps %}
+                <li class="list-group-item">
+                    <span class="glyphicon glyphicon-ok"></span> Step {{step.step_num}}:
+<span
+        style = "font-size:14pt">
+{{step.step}}
+
+</span>
+                </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+        <div class="col-xs-6">
+            <script type="text/javascript">
+   function addTextTag(text){
+    document.getElementById('step').value = text;
+   }
+</script>
+
+            <h4>
 <span>
 
 Suggestions For {{event.category}}
 </span>
-</h1>
-{% if suggestions.count() == 0 %}
-<b>There are no suggestions for this category yet! Sorry...</b>
-{% endif %}
-{% for suggestion in suggestions %}
-<br>--------------<br>
- Step:
+            </h4>
+            {% if suggestions.count() == 0 %}
+            <b>There are no suggestions for this category yet! Sorry...</b>
+            {% endif %}
+            <ul class="list-group">
+                {% for suggestion in suggestions %}
+                <li class="list-group-item list-group-item-success">
+
+                    <span class="glyphicon glyphicon-share-alt"> </span> Step:
  <span
- style = "font-size:14pt"
- >
-{{suggestion.step}}
+         style = "font-size:14pt"
+         >
+
+     <a href="#" onClick="addTextTag('{{suggestion.step}} '); return false">
+         {{suggestion.step}}
+     </a>
 </span>
 
-<br>--------------<br>
-{% endfor %}
+                </li>
+
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
 
 
-<h2>Current Steps:</h2>
-{% if event_steps.count() == 0 %}
-You don't have any steps yet, go ahead and add some!
-{% endif %}
-{% for step in event_steps %}
-Step {{step.step_num}}: 
-<span
-style = "font-size:14pt">
-{{step.step}}
-</span></a><br>
-{% endfor %}
-
-
-<form class="form-horizontal" action="" method="post">
-   {{form.hidden_tag()}}
-    Step:
-    {{form.step(id="step",class="form-control input-sm",placeholder="Step")}}
-{% for error in form.errors.name %} <span style="color: red">{{ error }}</span> {% endfor %}
-    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-</form>
 </body>
 </html>

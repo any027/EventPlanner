@@ -13,13 +13,21 @@ View Event
 
 <br><br>
 
-<span
 
-style ="font-size:15pt">
 
-Name:
-{{event.name}}
-<br>
+
+
+<div class="container" >
+
+    <div class="row">
+        <div class="col-xs-6">
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{event.name}}</h3>
+    </div>
+    <div class="panel-body">
+
 Category:
 {{event.category}}
 <br>
@@ -28,27 +36,41 @@ Time:
 <br>
 Location:
 {{event.location}}
-</span>
-
-<br>
 <br>
 
-<span
-style= "font-size:15pt;color:green">
-{% for step in event_steps %}
-Step {{step.step_num}}: 
-{{step.step}}</a><br>
-{% endfor %}
-</span>
-{% if event_steps.count() == 0 %}
-<b>There is no Step for this event yet! <a href=../addStep/{{event.id}}>Add one!</a></b>
-{%else%}
-<br>
-<span
+
+    </div>
+</div>
+
+
+            <span
 style ="font-size:15pt">
 <a href=../addStep/{{event.id}}>&nbspAdd Step!</a>
 </span>
-{% endif %}
+
+
+        </div>
+        <div class="col-xs-6">
+            <h4>Current Steps:</h4>
+            {% if event_steps.count() == 0 %}
+<b>There is no Step for this event yet! <a href=../addStep/{{event.id}}>Add one!</a></b>
+            {% endif %}
+            <ul class="list-group">
+                {% for step in event_steps %}
+                <li class="list-group-item">
+                    <span class="glyphicon glyphicon-ok"></span> Step {{step.step_num}}:
+<span
+        style = "font-size:14pt">
+{{step.step}}
+
+</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
 
 
 </body>
