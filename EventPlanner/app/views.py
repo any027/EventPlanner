@@ -24,9 +24,11 @@ def createEvent():
         event = Event(name=name, category=category, steps=steps, time=time, location=location)
         sqldb.session.add(event)
         sqldb.session.commit()
+        return event.id
     if form.validate_on_submit():
-        add_event(form.name.data, form.category.data, form.step.data, form.time.data, form.location.data)
-        flash('Event Created.')
+        eventId = add_event(form.name.data, form.category.data, form.step.data, form.time.data, form.location.data)
+        flash('Event Created.' + " Event ID: " + str(eventId))
+        return redirect("viewEvent/"+str(eventId))
 
     return render_template("createEvent.html", form=form)
 
