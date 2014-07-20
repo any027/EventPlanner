@@ -15,7 +15,6 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Event #</th>
                   <th>Name</th>
                   <th>Time</th>
                   <th>Location</th>
@@ -25,8 +24,6 @@
               <tbody>
               {% for event in events %}
                 <tr>
-
-                  <td>{{event.id}}</td>
                   <td> <a href=viewEvent/{{event.id}}>{{event.name}}</a></td>
                   <td>{{event.time}}</td>
                   <td>{{event.location}}</td>
