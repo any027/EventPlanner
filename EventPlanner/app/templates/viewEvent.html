@@ -4,9 +4,18 @@
     <title></title>
 </head>
 {% include 'navbar.html' %}
-<body>
+<body style = "background-color:#FFC978">
+<br>
+<span
+style="font-size:20pt;font-weight:bold;font-family:Bookman Old Style">
 View Event
+</span>
+
 <br><br>
+
+<span
+
+style ="font-size:15pt;color:green">
 
 Name:
 {{event.name}}
@@ -19,19 +28,23 @@ Time:
 <br>
 Location:
 {{event.location}}
+</span>
+
 <br>
-Old Steps:
-{{event.steps}}
 <br>
 
-New Steps:<br><br>
+
 {% for step in event_steps %}
 Step {{step.step_num}}: {{step.step}}</a><br>
 {% endfor %}
 {% if event_steps.count() == 0 %}
 <b>There is no Step for this event yet! <a href=../addStep/{{event.id}}>Add one!</a></b>
 {%else%}
-<a href=../addStep/{{event.id}}>Add Step!</a>
+<br>
+<span
+style ="font-size:15pt">
+<a href=../addStep/{{event.id}}>&nbspAdd Step!</a>
+</span>
 {% endif %}
 
 

@@ -4,8 +4,13 @@
     <title></title>
 </head>
 {% include 'navbar.html' %}
-<body style ="background-color:#A5C1E4">
+<body style ="background-color:#A5C1E4;background-image: url(http://homefoodsafety.org/vault/2499/web/Picnic_Eating.jpg);color:white;background-repeat:no-repeat;background-size:cover">
 <div style="font-weight:bold;font-size:20pt;font-family:Bookman Old Style">
+<br>
+
+ 
+      
+	  
 Create Event</div><br>
 						{% with messages = get_flashed_messages() %} {% if messages %}
 						<ul>
@@ -16,30 +21,29 @@ Create Event</div><br>
 
 <form class="form-horizontal" action="" method="post" style = "margin-top:10px; font-size: 14pt">
    {{form.hidden_tag()}}
-      &nbsp;Name:
-    {{form.name(id="name",class="form-control input-sm",placeholder="Name", style = "width:50%"	)}}
+      &nbsp;Event Name:
+    {{form.name(id="name",class="form-control input-sm", style = "width:50%"	)}}
 {% for error in form.errors.name %} <span style="color: red">{{ error }}</span> {% endfor %}
 
 <br>
       &nbsp;Category:
-    {{form.category(id="category",class="form-control input-sm",placeholder="Category", style = "width:50%"	)	}}
+    {{form.category(id="category",class="form-control input-sm", style = "width:50%"	)	}}
 {% for error in form.errors.category %} <span style="color: red">{{ error }}</span> {% endfor %}
 
 <br>
       &nbsp;Time (yyyy-mm-dd hh):
-    {{form.time(id="time",class="form-control input-sm",placeholder="Time", style = "width:50%"	)}}
+    {{form.time(id="time",class="form-control input-sm", style = "width:50%"	)}}
 {% for error in form.errors.time %} <span style="color: red">{{ error }}</span> {% endfor %}
 
 <br>
      &nbsp; Location:
-    {{form.location(id="location",class="form-control input-sm",placeholder="Location", style = "width:50%"	)}}
+    {{form.location(id="location",class="form-control input-sm", style = "width:50%"	)}}
 {% for error in form.errors.location %} <span style="color: red">{{ error }}</span> {% endfor %}
 
 <br>
 
 <button type="submit" class="btn btn-primary btn-lg">Submit</button>
 </form>
-
 
 </body>
 </html>
