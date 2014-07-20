@@ -14,7 +14,8 @@ from datetime import datetime, date, time, timedelta
 
 @app.route('/', methods = ['GET', 'POST'])
 def hello():
-    return render_template("hello.html")
+    events = Event.query.all()
+    return render_template("hello.html", events=events)
 
 @app.route('/createEvent', methods = ['GET', 'POST'])
 def createEvent():

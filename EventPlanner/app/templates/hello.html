@@ -1,1 +1,6 @@
 "hello world"
+<br>
+List of Events
+{% for event in events %}
+Event: <a href=viewEvent/{{event.id}}>{{event.name}}</a><br>
+{% endfor %}
