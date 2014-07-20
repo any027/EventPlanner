@@ -4,39 +4,40 @@
     <title></title>
 </head>
 {% include 'navbar.html' %}
-<body>
-Create Event
+<body style ="background-color:#A5C1E4">
+<div style="font-weight:bold;font-size:20pt;font-family:Bookman Old Style">
+Create Event</div><br>
 						{% with messages = get_flashed_messages() %} {% if messages %}
 						<ul>
 							{% for message in messages %}
-							<li>{{ message }}</li> {% endfor %}
+							<li>{{ message }}</li> {% endfor %}	
 						</ul>
 						{% endif %} {% endwith %}
 
-<form class="form-horizontal" action="" method="post">
+<form class="form-horizontal" action="" method="post" style = "margin-top:10px; font-size: 14pt">
    {{form.hidden_tag()}}
-    name:
-    {{form.name(id="name",class="form-control input-sm",placeholder="Name")}}
+      &nbsp;Name:
+    {{form.name(id="name",class="form-control input-sm",placeholder="Name", style = "width:50%"	)}}
 {% for error in form.errors.name %} <span style="color: red">{{ error }}</span> {% endfor %}
 
 <br>
-    category:
-    {{form.category(id="category",class="form-control input-sm",placeholder="Category")}}
+      &nbsp;Category:
+    {{form.category(id="category",class="form-control input-sm",placeholder="Category", style = "width:50%"	)	}}
 {% for error in form.errors.category %} <span style="color: red">{{ error }}</span> {% endfor %}
 
 <br>
-    time (yyyy-mm-dd hh):
-    {{form.time(id="time",class="form-control input-sm",placeholder="Time")}}
+      &nbsp;Time (yyyy-mm-dd hh):
+    {{form.time(id="time",class="form-control input-sm",placeholder="Time", style = "width:50%"	)}}
 {% for error in form.errors.time %} <span style="color: red">{{ error }}</span> {% endfor %}
 
 <br>
-    location:
-    {{form.location(id="location",class="form-control input-sm",placeholder="Location")}}
+     &nbsp; Location:
+    {{form.location(id="location",class="form-control input-sm",placeholder="Location", style = "width:50%"	)}}
 {% for error in form.errors.location %} <span style="color: red">{{ error }}</span> {% endfor %}
 
 <br>
-    step:
-    {{form.step(id="step",class="form-control input-sm",placeholder="Step")}}
+      &nbsp;Step:
+    {{form.step(id="step",class="form-control input-sm",placeholder="Step", style = "width:50%"	)}}
 {% for error in form.errors.step %} <span style="color: red">{{ error }}</span> {% endfor %}
 <br><br><button type="add" class="btn btn-primary btn-lg">Add Step</button>
 
