@@ -42,8 +42,7 @@ Location:
   <script>
 
 
-
-$.getJSON("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q={{event.name}}&callback=?",
+$.getJSON("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q={{event.name.replace("'", "")}}&callback=?",
           {
             unescapedUrl: "any"
           },
