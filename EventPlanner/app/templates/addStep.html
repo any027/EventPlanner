@@ -31,7 +31,6 @@ Location:
 {% endfor %}
 
 
-Try to Do HTML 5 / JavaScript Hide/ Show
 <h2>Current Steps:</h2>
 {% if event_steps.count() == 0 %}
 You don't have any steps yet, go ahead and add some!
@@ -39,9 +38,6 @@ You don't have any steps yet, go ahead and add some!
 {% for step in event_steps %}
 Step {{step.step_num}}: {{step.step}}</a><br>
 {% endfor %}
-
-
-
 
 
 <form class="form-horizontal" action="" method="post">
