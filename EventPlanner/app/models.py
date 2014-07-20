@@ -83,3 +83,11 @@ class Suggestion(sqldb.Model):
     id = sqldb.Column(sqldb.Integer, primary_key=True)
     category = sqldb.Column(sqldb.String(100), nullable=False)
     step = sqldb.Column(sqldb.String(300), nullable=False)
+
+
+
+class Step(sqldb.Model):
+    id = sqldb.Column(sqldb.Integer, primary_key=True)
+    event_id = sqldb.Column(sqldb.Integer)
+    step_num = sqldb.Column(sqldb.String(300), nullable=False)
+    step = sqldb.Column(sqldb.String(300), nullable=False)

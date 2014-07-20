@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+{% include 'navbar.html' %}
+<body>
+
+Name:
+{{event.name}}
+<br>
+Category:
+{{event.category}}
+<br>
+Time:
+{{event.time}}
+<br>
+Location:
+{{event.location}}
+<br>
+
+{% include 'suggestions.html'%}
+Try to Do HTML 5 / JavaScript Hide/ Show
+<form class="form-horizontal" action="" method="post">
+   {{form.hidden_tag()}}
+    Step Num:
+    {{form.step_num(id="step_num",class="form-control input-sm",placeholder="Step Number")}}
+{% for error in form.errors.step_num %} <span style="color: red">{{ error }}</span> {% endfor %}
+    Step:
+    {{form.step(id="step",class="form-control input-sm",placeholder="Step")}}
+{% for error in form.errors.name %} <span style="color: red">{{ error }}</span> {% endfor %}
+    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+</form>
+</body>
+</html>

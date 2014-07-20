@@ -12,3 +12,6 @@ class EventForm(Form):
     time = DateTimeField('time', format = '%Y-%m-%d %H', validators = [Required('Time is required/valid')])
     location = TextField('location', [Required('Location is required')])
     
+class StepForm(Form):
+    step_num = TextField('Step Num', [Required('Step Num is required')])
+    step = TextField('Step', [Required('Step is required')])
