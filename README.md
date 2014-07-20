@@ -1,4 +1,4 @@
-Hack-a-thon APP
+EventPlanner APP
 ============
 * Python
 * Flask
@@ -10,3 +10,6 @@ Create virutal python environment:
 Install extensions: 
 * For Mac: flask/bin/pip install -r requirements.txt
 * For Windows: flask\Scripts\pip install -r requirements.txt
+
+Run: 
+flask\Scripts\python EventPlanner\run.py
