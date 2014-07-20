@@ -35,10 +35,7 @@ Create Event
 {% for error in form.errors.location %} <span style="color: red">{{ error }}</span> {% endfor %}
 
 <br>
-    step:
-    {{form.step(id="step",class="form-control input-sm",placeholder="Step")}}
-{% for error in form.errors.step %} <span style="color: red">{{ error }}</span> {% endfor %}
-<br><br><button type="add" class="btn btn-primary btn-lg">Add Step</button>
+
 
 <button type="submit" class="btn btn-primary btn-lg">Submit</button>
 </form>
