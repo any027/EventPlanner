@@ -80,6 +80,6 @@ class Event(sqldb.Model):
     location = sqldb.Column(sqldb.String(100), nullable=False)
 
 class Suggestion(sqldb.Model):
-    idsuggestion = sqldb.Column(sqldb.Integer, primary_key=True)
+    id = sqldb.Column(sqldb.Integer, primary_key=True)
     category = sqldb.Column(sqldb.String(100), nullable=False)
-    steps = sqldb.Column(sqldb.String(300), nullable=False)
+    step = sqldb.Column(sqldb.String(300), nullable=False)

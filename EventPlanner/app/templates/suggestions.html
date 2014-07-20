@@ -4,7 +4,14 @@
     <title></title>
 </head>
 <body>
-Suggestions
-{{data}}
+
+<h1>Suggestions For {{category}}</h1>
+
+{% for suggestion in suggestions %}
+<br>--------------<br>
+<br> Step:
+{{suggestion.step}}
+<br>--------------<br>
+{% endfor %}
 </body>
 </html>
