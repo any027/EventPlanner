@@ -30,6 +30,8 @@ Step {{step.step_num}}: {{step.step}}</a><br>
 {% endfor %}
 {% if event_steps.count() == 0 %}
 <b>There is no Step for this event yet! <a href=../addStep/{{event.id}}>Add one!</a></b>
+{%else%}
+<a href=../addStep/{{event.id}}>Add Step!</a>
 {% endif %}
 
 

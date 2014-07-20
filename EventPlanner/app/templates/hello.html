@@ -1,17 +1,36 @@
 {% include 'navbar.html' %}
 
-"hello world"
-<br>
-Event Listings
 
+      <div class="jumbotron" style="background-image: url(http://cdn.wonderfulengineering.com/wp-content/uploads/2013/12/hd-wallpaper-desktop-1.jpeg)">
+        <h1> <font color = white> Event Planner! </p></h1>
+        <p class="lead">This app helps you organize your event by providing you step-by-step suggestions. </p>
+        <p><a class="btn btn-lg btn-success" href="/createEvent" role="button">Create an Event</a></p>
+      </div>
 
-<br>
+<h1>Event Listings</h1>
 
+<div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Event #</th>
+                  <th>Name</th>
+                  <th>Time</th>
+                  <th>Location</th>
 
-<a href="/createEvent">Create an Event</a>
+                </tr>
+              </thead>
+              <tbody>
+              {% for event in events %}
+                <tr>
 
-        <br>
-<br>
-{% for event in events %}
-Event: <a href=viewEvent/{{event.id}}>{{event.name}}</a><br>
+                  <td>{{event.id}}</td>
+                  <td> <a href=viewEvent/{{event.id}}>{{event.name}}</a></td>
+                  <td>{{event.time}}</td>
+                  <td>{{event.location}}</td>
+
+                </tr>
 {% endfor %}
+              </tbody>
+            </table>
+          </div>

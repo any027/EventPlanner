@@ -19,13 +19,33 @@ Location:
 {{event.location}}
 <br>
 
-{% include 'suggestions.html'%}
+<h1>Suggestions For {{event.category}}</h1>
+{% if suggestions.count() == 0 %}
+<b>There are no suggestions for this category yet! Sorry...</b>
+{% endif %}
+{% for suggestion in suggestions %}
+<br>--------------<br>
+ Step:
+{{suggestion.step}}
+<br>--------------<br>
+{% endfor %}
+
+
 Try to Do HTML 5 / JavaScript Hide/ Show
+<h2>Current Steps:</h2>
+{% if event_steps.count() == 0 %}
+You don't have any steps yet, go ahead and add some!
+{% endif %}
+{% for step in event_steps %}
+Step {{step.step_num}}: {{step.step}}</a><br>
+{% endfor %}
+
+
+
+
+
 <form class="form-horizontal" action="" method="post">
    {{form.hidden_tag()}}
-    Step Num:
-    {{form.step_num(id="step_num",class="form-control input-sm",placeholder="Step Number")}}
-{% for error in form.errors.step_num %} <span style="color: red">{{ error }}</span> {% endfor %}
     Step:
     {{form.step(id="step",class="form-control input-sm",placeholder="Step")}}
 {% for error in form.errors.name %} <span style="color: red">{{ error }}</span> {% endfor %}

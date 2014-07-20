@@ -20,13 +20,13 @@ def hello():
 @app.route('/createEvent', methods = ['GET', 'POST'])
 def createEvent():
     form = EventForm()
-    def add_event(name, category, steps, time, location):
-        event = Event(name=name, category=category, steps=steps, time=time, location=location)
+    def add_event(name, category, time, location):
+        event = Event(name=name, category=category, time=time, location=location)
         sqldb.session.add(event)
         sqldb.session.commit()
         return event.id
     if form.validate_on_submit():
-        eventId = add_event(form.name.data, form.category.data, form.step.data, form.time.data, form.location.data)
+        eventId = add_event(form.name.data, form.category.data, form.time.data, form.location.data)
         #flash('Event Created.' + " Event ID: " + str(eventId))
         return redirect("addStep/"+str(eventId))
 
@@ -48,11 +48,14 @@ def getSuggestions(category):
 def addStep(event_id):
     event = Event.query.get(event_id)
     form = StepForm()
+    suggestions = Suggestion.query.filter(Suggestion.category == event.category)
+    event_steps = Step.query.order_by(Step.step_num).filter(Step.event_id == event.id)
+    step_num = event_steps.count() + 1
     def add_step(event_id, step_num, step):
         new_step = Step(event_id = event_id, step_num = step_num, step=step)
         sqldb.session.add(new_step)
         sqldb.session.commit()
     if form.validate_on_submit():
-        add_step(event_id, form.step_num.data, form.step.data)
-        return redirect("viewEvent/"+str(event_id))
-    return render_template("addStep.html", form = form, event=event)
+        add_step(event_id, step_num, form.step.data)
+        return redirect("addStep/"+str(event_id))
+    return render_template("addStep.html", form = form, event=event, suggestions = suggestions, event_steps=event_steps)
